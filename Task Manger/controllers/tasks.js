@@ -5,8 +5,14 @@ exports.getAllTasks = (req, res) => {
 };
 
 exports.createTask = async (req, res) => {
-  const task = await Task.create(req.body);
-  res.json({ task });
+  try {
+    const task = await Task.create(req.body);
+    res.json({ task });
+  } catch (error) {
+    res.status(500).json({
+      message: error,
+    });
+  }
 };
 
 exports.getTask = (req, res) => {
