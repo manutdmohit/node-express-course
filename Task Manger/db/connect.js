@@ -1,2 +1,13 @@
+const mongoose = require('mongoose');
+
 const connectionString =
-  'mongodb+srv://manutdmohit:<password>@express-mongo.64jbe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+  'mongodb+srv://manutdmohit:ram@sita@express-mongo.64jbe.mongodb.net/task-manager?retryWrites=true&w=majority';
+
+const connectDB = (url) => {
+  return mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+};
+
+module.exports = connectDB;
